@@ -3,12 +3,12 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = os.getenv('SECRET_KEY', 'DEFAULT_SECRET_KEY')
 
-SECRET_KEY = 'django-insecure-j_89af+30&&4qm*8z9_(^zz8p4-ho8z_m6ylm0s$h!-p@on1_^'
+DEBUG = True if os.getenv('MODE_DEBAG') == 'True' else False
 
-DEBUG = True
-
-ALLOWED_HOSTS = ['158.160.91.193', '127.0.0.1', 'localhost', 'withloveforxenia.hopto.org']
+ALLOWED_HOSTS = [
+    os.getenv('SERVER_IP', '123.123.123.123'), os.getenv('DOMAIN')]
 
 
 # Application definition
